@@ -8,22 +8,25 @@ import java.util.List;
 public class ID3Service {
 
 
-    public Node treeGrowth(TrainingDataset trainingDataset, List<String> avalaibleAttributes, String targetAttribute){
+    public Node treeGrowth(TrainingDataset trainingDataset, List<String> availableAttributes, String targetAttribute){
 
-        if(stoppingCond(trainingDataset, avalaibleAttributes)){
+        if(stoppingCond(trainingDataset, availableAttributes, targetAttribute)){
             Node leaf = new LeafNode();
-            leaf.setAttributeLabelName(classify(trainingDataset));
+            leaf.setAttributeLabelName(classify(trainingDataset, targetAttribute));
             return leaf;
-
         } else {
             Node root = new TestNode();
-            root.setAttributeLabelName(findBestSplit(trainingDataset, avalaibleAttributes, targetAttribute));
+            root.setAttributeLabelName(findBestSplit(trainingDataset, availableAttributes, targetAttribute));
 
-            List<String> attributesAvailable = getAttributeValues(trainingDataset, root.getAttributeLabelName());
+            List<String> availableAttributesUpdate = new ArrayList<>(availableAttributes);
+            availableAttributesUpdate.remove(root.getAttributeLabelName());
 
-            for(String attributeValue : attributesAvailable){
-                TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, root.getAttributeLabelName(), attributeValue);
-                Node child = treeGrowth(subTrainingDS, avalaibleAttributes, targetAttribute);
+            List<String> attributeValues = getAttributeValues(trainingDataset, root.getAttributeLabelName());
+
+            for(String attributeValue : attributeValues){
+                TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, root.getAttributeLabelName(),
+                        attributeValue);
+                Node child = treeGrowth(subTrainingDS, availableAttributesUpdate, targetAttribute);
                 root.getChildList().add(child);
             }
 
@@ -31,21 +34,46 @@ public class ID3Service {
         }
     }
 
-    private boolean stoppingCond(TrainingDataset trainingDataset, List<String> attributes){
-        return false;
+    private boolean stoppingCond(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
+
+        double entropy = entropy(trainingDataset, targetAttribute);
+
+        if(entropy == 0){
+            return true;
+        }
+
+        return attributes.isEmpty();
     }
 
-    private String classify(TrainingDataset trainingDataset){
-        return null;
+    private String classify(TrainingDataset trainingDataset, String targetAttribute){
+
+        int count = 0;
+        String selectedLabel = null;
+        List<String> valuesList = getAttributeValues(trainingDataset, targetAttribute);
+        int attributeIndex = trainingDataset.getAttributes().indexOf(targetAttribute);
+
+        for (String value : valuesList){
+            long counterRecord = trainingDataset.getRecords().stream().filter( r ->
+                    value.equalsIgnoreCase(r.getValues().get(attributeIndex))).count();
+
+            if(counterRecord > count){
+                selectedLabel = value;
+            }
+        }
+
+
+        return selectedLabel;
     }
 
     //select best attribute (effectiveness) to classify training data
-    private String findBestSplit(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
+    public String findBestSplit(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
 
         String selectedAttribute = null;
         double informationGain = 0;
+        List<String> attributesWithoutTarget = new ArrayList<>(attributes);
+        attributesWithoutTarget.remove(targetAttribute);
 
-        for(String attribute : attributes){
+        for(String attribute : attributesWithoutTarget){
             double informationGainAttribute = gain(trainingDataset, attribute, targetAttribute);
 
             if(informationGainAttribute > informationGain){

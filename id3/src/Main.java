@@ -10,12 +10,17 @@ public class Main {
 
     public static void main(String[] args) {
 
+        TrainingDataset trainingDataset = buildTrainingDataset();
         ID3Service id3Service = new ID3Service();
+
+
         //System.out.println(id3Service.countValues(buildTrainingDataset(), "playtennis", "yes"));
         //System.out.println(id3Service.getAttributeValues(buildTrainingDataset(), "outlook"));
         //System.out.println(id3Service.entropy(buildTrainingDataset(), "playtennis"));
-        System.out.println(id3Service.gain(buildTrainingDataset(), "wind", "playtennis"));
+        //System.out.println(id3Service.gain(buildTrainingDataset(), "wind", "playtennis"));
         //System.out.println(id3Service.getSubTrainingDS(buildTrainingDataset(), "wind", "strong"));
+        System.out.println(id3Service.findBestSplit(trainingDataset, trainingDataset.getAttributes(), "playtennis"));
+
     }
 
 
