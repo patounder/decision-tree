@@ -39,28 +39,22 @@ public class ID3Service {
         return null;
     }
 
+    //select best attribute (effectiveness) to classify training data
     private String findBestSplit(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
-        //TODO implement entropy
-        //TODO implement information gain
 
         String selectedAttribute = null;
-        double gralEntropy = entropy(trainingDataset, targetAttribute);
-        double sumatory = 0;
+        double informationGain = 0;
 
         for(String attribute : attributes){
+            double informationGainAttribute = gain(trainingDataset, attribute, targetAttribute);
 
-            List<String> valuesList = getAttributeValues(trainingDataset, attribute);
-            for(String valueAttribute : valuesList){
-                int occurrences = countValues(trainingDataset, targetAttribute, valueAttribute);
-
+            if(informationGainAttribute > informationGain){
+                selectedAttribute = attribute;
+                informationGain = informationGainAttribute;
             }
-
-
-            double attributeGain = 0;
-
         }
 
-        return null;
+        return selectedAttribute;
     }
 
     //size purity of training dataset
@@ -72,14 +66,28 @@ public class ID3Service {
         for(String valueAttribute : valuesList){
             int occurrences = countValues(trainingDataset, targetAttribute, valueAttribute);
             double proportion = (double)occurrences/trainingDataset.getRecords().size();
-            entropyVal = entropyVal - proportion * Math.log(proportion);
+            entropyVal = entropyVal - proportion * (Math.log10(proportion)/Math.log10(2));
         }
 
         return entropyVal;
     }
 
-    private double gain(TrainingDataset trainingDataset, String targetAttribute){
-        return 0;
+    //calc information gain for selected attribute by target attribute
+    public double gain(TrainingDataset trainingDataset, String selectedAttribute, String targetAttribute){
+        double gralEntropy = entropy(trainingDataset, targetAttribute);
+        double summa = 0;
+
+        //TODO calc summa
+        List<String> valuesList = getAttributeValues(trainingDataset, selectedAttribute);
+
+        for(String value : valuesList){
+            TrainingDataset subset  = getSubTrainingDS(trainingDataset, selectedAttribute, value);
+            double subsetEntropy = entropy(subset, targetAttribute);
+            double proportion = (double)subset.getRecords().size()/trainingDataset.getRecords().size();
+            summa = summa + proportion * subsetEntropy;
+        }
+
+        return gralEntropy - summa;
     }
 
     //get possible values for attribute
