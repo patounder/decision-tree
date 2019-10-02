@@ -3,6 +3,7 @@ package services;
 import dto.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ID3Service {
@@ -10,12 +11,14 @@ public class ID3Service {
 
     public Node treeGrowth(TrainingDataset trainingDataset, List<String> availableAttributes, String targetAttribute){
 
+        Node root;
+
         if(stoppingCond(trainingDataset, availableAttributes, targetAttribute)){
-            Node leaf = new LeafNode();
-            leaf.setAttributeLabelName(classify(trainingDataset, targetAttribute));
-            return leaf;
+            root = new LeafNode();
+            root.setAttributeLabelName(classify(trainingDataset, targetAttribute));
+            root.setChildList(Collections.emptyList());
         } else {
-            Node root = new TestNode();
+            root = new TestNode("", new ArrayList<>());
             root.setAttributeLabelName(findBestSplit(trainingDataset, availableAttributes, targetAttribute));
 
             List<String> availableAttributesUpdate = new ArrayList<>(availableAttributes);
@@ -26,15 +29,25 @@ public class ID3Service {
             for(String attributeValue : attributeValues){
                 TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, root.getAttributeLabelName(),
                         attributeValue);
-                Node child = treeGrowth(subTrainingDS, availableAttributesUpdate, targetAttribute);
+
+                Node child;
+
+                if(subTrainingDS.getRecords().isEmpty()){
+                    child = new LeafNode();
+                    child.setAttributeLabelName(classify(trainingDataset, targetAttribute));
+                    child.setChildList(Collections.emptyList());
+                } else {
+                    child = treeGrowth(subTrainingDS, availableAttributesUpdate, targetAttribute);
+                }
+
                 root.getChildList().add(child);
             }
-
-            return root;
         }
+
+        return root;
     }
 
-    private boolean stoppingCond(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
+    public boolean stoppingCond(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
 
         double entropy = entropy(trainingDataset, targetAttribute);
 
@@ -45,9 +58,9 @@ public class ID3Service {
         return attributes.isEmpty();
     }
 
-    private String classify(TrainingDataset trainingDataset, String targetAttribute){
+    public String classify(TrainingDataset trainingDataset, String targetAttribute){
 
-        int count = 0;
+        long count = 0;
         String selectedLabel = null;
         List<String> valuesList = getAttributeValues(trainingDataset, targetAttribute);
         int attributeIndex = trainingDataset.getAttributes().indexOf(targetAttribute);
@@ -58,6 +71,7 @@ public class ID3Service {
 
             if(counterRecord > count){
                 selectedLabel = value;
+                count = counterRecord;
             }
         }
 
