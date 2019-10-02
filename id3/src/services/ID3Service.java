@@ -17,12 +17,12 @@ public class ID3Service {
 
         } else {
             Node root = new TestNode();
-            root.setAttributeLabelName(findBestSplit(trainingDataset, avalaibleAttributes));
+            root.setAttributeLabelName(findBestSplit(trainingDataset, avalaibleAttributes, targetAttribute));
 
             List<String> attributesAvailable = getAttributeValues(trainingDataset, root.getAttributeLabelName());
 
             for(String attributeValue : attributesAvailable){
-                TrainingDataset subTrainingDS = getSubTrainingDS(root.getAttributeLabelName(), attributeValue);
+                TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, root.getAttributeLabelName(), attributeValue);
                 Node child = treeGrowth(subTrainingDS, avalaibleAttributes, targetAttribute);
                 root.getChildList().add(child);
             }
@@ -39,13 +39,31 @@ public class ID3Service {
         return null;
     }
 
-    private String findBestSplit(TrainingDataset trainingDataset, List<String> attributes){
+    private String findBestSplit(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
         //TODO implement entropy
         //TODO implement information gain
+
+        String selectedAttribute = null;
+        double gralEntropy = entropy(trainingDataset, targetAttribute);
+        double sumatory = 0;
+
+        for(String attribute : attributes){
+
+            List<String> valuesList = getAttributeValues(trainingDataset, attribute);
+            for(String valueAttribute : valuesList){
+                int occurrences = countValues(trainingDataset, targetAttribute, valueAttribute);
+
+            }
+
+
+            double attributeGain = 0;
+
+        }
 
         return null;
     }
 
+    //size purity of training dataset
     public double entropy(TrainingDataset trainingDataset, String targetAttribute){
 
         double entropyVal = 0;
@@ -79,23 +97,22 @@ public class ID3Service {
         return valueList;
     }
 
-    //get counter of record when targetAttribute equal valueAttribute
-    public int countValues(TrainingDataset trainingDataset, String targetAttribute, String valueAttribute){
-
-        int count = 0;
-        int attributeIndex = trainingDataset.getAttributes().indexOf(targetAttribute);
+    //get subset training dataset where attribute is value
+    public TrainingDataset getSubTrainingDS(TrainingDataset trainingDataset, String attribute, String value){
+        int attributeIndex = trainingDataset.getAttributes().indexOf(attribute);
+        List<TrainingRecord> records = new ArrayList<>();
 
         for(TrainingRecord record : trainingDataset.getRecords()){
-
-            if(record.getValues().get(attributeIndex).equalsIgnoreCase(valueAttribute)){
-                count++;
+            if(record.getValues().get(attributeIndex).equalsIgnoreCase(value)){
+                records.add(record);
             }
         }
 
-        return count;
+        return new TrainingDataset(trainingDataset.getAttributes(), records);
     }
 
-    private TrainingDataset getSubTrainingDS(String attribute, String value){
-        return null;
+    //get counter of record when targetAttribute equal valueAttribute
+    public int countValues(TrainingDataset trainingDataset, String targetAttribute, String valueAttribute){
+        return getSubTrainingDS(trainingDataset, targetAttribute, valueAttribute).getRecords().size();
     }
 }
