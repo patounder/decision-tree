@@ -10,25 +10,24 @@ public class ID3Service {
 
 
     public Node treeGrowth(TrainingDataset trainingDataset, List<String> availableAttributes, String targetAttribute,
-                           String classifyValue){
+                           String branchValue){
 
         Node root;
 
         if(stoppingCond(trainingDataset, availableAttributes, targetAttribute)){
             String leafLabel = classify(trainingDataset, targetAttribute);
-            root = new LeafNode(leafLabel, Collections.emptyList(), TypeNode.LEAF, classifyValue);
+            root = new LeafNode(leafLabel, Collections.emptyList(), TypeNode.LEAF, branchValue);
         } else {
             String testValue = findBestSplit(trainingDataset, availableAttributes, targetAttribute);
-            root = new InternNode(testValue, new ArrayList<>(), TypeNode.TEST, classifyValue);
+            root = new InternNode(testValue, new ArrayList<>(), TypeNode.TEST, branchValue);
 
             List<String> availableAttributesUpdate = new ArrayList<>(availableAttributes);
-            availableAttributesUpdate.remove(root.getValue());
+            availableAttributesUpdate.remove(testValue);
 
-            List<String> attributeValues = getAttributeValues(trainingDataset, root.getValue());
+            List<String> attributeValues = getAttributeValues(trainingDataset, testValue);
 
             for(String attributeValue : attributeValues){
-                TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, root.getValue(),
-                        attributeValue);
+                TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, testValue, attributeValue);
 
                 Node child;
                 if(subTrainingDS.getRecords().isEmpty()){

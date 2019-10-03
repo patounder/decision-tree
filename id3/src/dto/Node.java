@@ -4,30 +4,21 @@ import java.util.List;
 
 public class Node {
 
-    private String value;
-    private List<Node> childList;
+    protected List<Node> childList;
     protected TypeNode typeNode;
-    protected String classifyValue;
+    protected String branchValue;
 
     public Node() {
         super();
     }
 
-    public Node(String value, List<Node> childList, TypeNode typeNode, String classifyValue) {
+    public Node(List<Node> childList, TypeNode typeNode, String branchValue) {
         super();
-        this.value = value;
         this.childList = childList;
         this.typeNode = typeNode;
-        this.classifyValue = classifyValue;
+        this.branchValue = branchValue;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String attributeLabelName) {
-        this.value = attributeLabelName;
-    }
 
     public List<Node> getChildList() {
         return childList;
@@ -45,20 +36,19 @@ public class Node {
         this.typeNode = typeNode;
     }
 
-    public String getClassifyValue() {
-        return classifyValue;
+    public String getBranchValue() {
+        return branchValue;
     }
 
-    public void setClassifyValue(String classifyValue) {
-        this.classifyValue = classifyValue;
+    public void setBranchValue(String branchValue) {
+        this.branchValue = branchValue;
     }
 
     @Override
     public String toString() {
         return "Node{" +
-                "classifyValue='" + classifyValue + '\'' +
-                ", value='" + value + '\'' +
-                ", typeNode=" + typeNode +
+                "typeNode=" + typeNode +
+                ", branchValue='" + branchValue + '\'' +
                 ", childList=" + childList +
                 '}';
     }
