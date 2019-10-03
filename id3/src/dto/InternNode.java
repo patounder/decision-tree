@@ -10,8 +10,8 @@ public class InternNode extends Node {
         super();
     }
 
-    public InternNode(String testAttribute, List<Node> childList, TypeNode typeNode, String classifyValue) {
-        super(childList, typeNode, classifyValue);
+    public InternNode(String testAttribute, List<Node> childList, String classifyValue) {
+        super(childList, classifyValue);
         this.testAttribute = testAttribute;
     }
 
@@ -26,8 +26,7 @@ public class InternNode extends Node {
     @Override
     public String toString() {
         return "InternNode{" +
-                "typeNode=" + typeNode +
-                ", testAttribute='" + testAttribute + '\'' +
+                "testAttribute='" + testAttribute + '\'' +
                 ", branchValue='" + branchValue + '\'' +
                 ", childList=" + childList +
                 '}';

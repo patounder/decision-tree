@@ -10,8 +10,8 @@ public class LeafNode extends Node {
         super();
     }
 
-    public LeafNode(String valueLabel, List<Node> childList, TypeNode typeNode, String branchValue) {
-        super(childList, typeNode, branchValue);
+    public LeafNode(String valueLabel, List<Node> childList, String branchValue) {
+        super(childList, branchValue);
         this.valueLabel = valueLabel;
     }
 
@@ -26,8 +26,7 @@ public class LeafNode extends Node {
     @Override
     public String toString() {
         return "LeafNode{" +
-                "typeNode=" + typeNode +
-                ", valueLabel='" + valueLabel + '\'' +
+                "valueLabel='" + valueLabel + '\'' +
                 ", branchValue='" + branchValue + '\'' +
                 ", childList=" + childList +
                 '}';

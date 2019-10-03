@@ -16,10 +16,10 @@ public class ID3Service {
 
         if(stoppingCond(trainingDataset, availableAttributes, targetAttribute)){
             String leafLabel = classify(trainingDataset, targetAttribute);
-            root = new LeafNode(leafLabel, Collections.emptyList(), TypeNode.LEAF, branchValue);
+            root = new LeafNode(leafLabel, Collections.emptyList(), branchValue);
         } else {
             String testValue = findBestSplit(trainingDataset, availableAttributes, targetAttribute);
-            root = new InternNode(testValue, new ArrayList<>(), TypeNode.TEST, branchValue);
+            root = new InternNode(testValue, new ArrayList<>(), branchValue);
 
             List<String> availableAttributesUpdate = new ArrayList<>(availableAttributes);
             availableAttributesUpdate.remove(testValue);
@@ -32,7 +32,7 @@ public class ID3Service {
                 Node child;
                 if(subTrainingDS.getRecords().isEmpty()){
                     String leafLabel = classify(trainingDataset, targetAttribute);
-                    child = new LeafNode(leafLabel, Collections.emptyList(), TypeNode.LEAF, attributeValue);
+                    child = new LeafNode(leafLabel, Collections.emptyList(), attributeValue);
                 } else {
                     child = treeGrowth(subTrainingDS, availableAttributesUpdate, targetAttribute, attributeValue);
                 }
