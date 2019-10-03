@@ -21,7 +21,8 @@ public class Main {
         //System.out.println(id3Service.getSubTrainingDS(buildTrainingDataset(), "wind", "strong"));
         //System.out.println(id3Service.findBestSplit(trainingDataset, trainingDataset.getAttributes(), "playtennis"));
         //System.out.println(id3Service.classify(trainingDataset, "playtennis"));
-        System.out.println(id3Service.treeGrowth(trainingDataset, trainingDataset.getAttributes(), "playtennis"));
+        System.out.println(id3Service.treeGrowth(trainingDataset, trainingDataset.getAttributes(), "playtennis",
+                "root"));
     }
 
 

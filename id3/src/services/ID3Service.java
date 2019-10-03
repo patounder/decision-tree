@@ -9,35 +9,33 @@ import java.util.List;
 public class ID3Service {
 
 
-    public Node treeGrowth(TrainingDataset trainingDataset, List<String> availableAttributes, String targetAttribute){
+    public Node treeGrowth(TrainingDataset trainingDataset, List<String> availableAttributes, String targetAttribute,
+                           String classifyValue){
 
         Node root;
 
         if(stoppingCond(trainingDataset, availableAttributes, targetAttribute)){
-            root = new LeafNode();
-            root.setAttributeLabelName(classify(trainingDataset, targetAttribute));
-            root.setChildList(Collections.emptyList());
+            String leafLabel = classify(trainingDataset, targetAttribute);
+            root = new LeafNode(leafLabel, Collections.emptyList(), TypeNode.LEAF, classifyValue);
         } else {
-            root = new TestNode("", new ArrayList<>());
-            root.setAttributeLabelName(findBestSplit(trainingDataset, availableAttributes, targetAttribute));
+            String testValue = findBestSplit(trainingDataset, availableAttributes, targetAttribute);
+            root = new InternNode(testValue, new ArrayList<>(), TypeNode.TEST, classifyValue);
 
             List<String> availableAttributesUpdate = new ArrayList<>(availableAttributes);
-            availableAttributesUpdate.remove(root.getAttributeLabelName());
+            availableAttributesUpdate.remove(root.getValue());
 
-            List<String> attributeValues = getAttributeValues(trainingDataset, root.getAttributeLabelName());
+            List<String> attributeValues = getAttributeValues(trainingDataset, root.getValue());
 
             for(String attributeValue : attributeValues){
-                TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, root.getAttributeLabelName(),
+                TrainingDataset subTrainingDS = getSubTrainingDS(trainingDataset, root.getValue(),
                         attributeValue);
 
                 Node child;
-
                 if(subTrainingDS.getRecords().isEmpty()){
-                    child = new LeafNode();
-                    child.setAttributeLabelName(classify(trainingDataset, targetAttribute));
-                    child.setChildList(Collections.emptyList());
+                    String leafLabel = classify(trainingDataset, targetAttribute);
+                    child = new LeafNode(leafLabel, Collections.emptyList(), TypeNode.LEAF, attributeValue);
                 } else {
-                    child = treeGrowth(subTrainingDS, availableAttributesUpdate, targetAttribute);
+                    child = treeGrowth(subTrainingDS, availableAttributesUpdate, targetAttribute, attributeValue);
                 }
 
                 root.getChildList().add(child);

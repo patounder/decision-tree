@@ -4,25 +4,29 @@ import java.util.List;
 
 public class Node {
 
-    private String attributeLabelName;
+    private String value;
     private List<Node> childList;
+    protected TypeNode typeNode;
+    protected String classifyValue;
 
     public Node() {
         super();
     }
 
-    public Node(String attributeLabelName, List<Node> childList) {
+    public Node(String value, List<Node> childList, TypeNode typeNode, String classifyValue) {
         super();
-        this.attributeLabelName = attributeLabelName;
+        this.value = value;
         this.childList = childList;
+        this.typeNode = typeNode;
+        this.classifyValue = classifyValue;
     }
 
-    public String getAttributeLabelName() {
-        return attributeLabelName;
+    public String getValue() {
+        return value;
     }
 
-    public void setAttributeLabelName(String attributeLabelName) {
-        this.attributeLabelName = attributeLabelName;
+    public void setValue(String attributeLabelName) {
+        this.value = attributeLabelName;
     }
 
     public List<Node> getChildList() {
@@ -33,10 +37,28 @@ public class Node {
         this.childList = childList;
     }
 
+    public TypeNode getTypeNode() {
+        return typeNode;
+    }
+
+    public void setTypeNode(TypeNode typeNode) {
+        this.typeNode = typeNode;
+    }
+
+    public String getClassifyValue() {
+        return classifyValue;
+    }
+
+    public void setClassifyValue(String classifyValue) {
+        this.classifyValue = classifyValue;
+    }
+
     @Override
     public String toString() {
         return "Node{" +
-                "attributeLabelName='" + attributeLabelName + '\'' +
+                "classifyValue='" + classifyValue + '\'' +
+                ", value='" + value + '\'' +
+                ", typeNode=" + typeNode +
                 ", childList=" + childList +
                 '}';
     }
