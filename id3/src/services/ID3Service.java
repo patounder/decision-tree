@@ -15,7 +15,7 @@ public class ID3Service {
         Node root;
 
         if(stoppingCond(trainingDataset, availableAttributes, targetAttribute)){
-            String leafLabel = classify(trainingDataset, targetAttribute);
+            String leafLabel = getLeafLabel(trainingDataset, targetAttribute);
             root = new LeafNode(leafLabel, Collections.emptyList(), branchValue);
         } else {
             String testValue = findBestSplit(trainingDataset, availableAttributes, targetAttribute);
@@ -31,7 +31,7 @@ public class ID3Service {
 
                 Node child;
                 if(subTrainingDS.getRecords().isEmpty()){
-                    String leafLabel = classify(trainingDataset, targetAttribute);
+                    String leafLabel = getLeafLabel(trainingDataset, targetAttribute);
                     child = new LeafNode(leafLabel, Collections.emptyList(), attributeValue);
                 } else {
                     child = treeGrowth(subTrainingDS, availableAttributesUpdate, targetAttribute, attributeValue);
@@ -55,7 +55,7 @@ public class ID3Service {
         return attributes.isEmpty();
     }
 
-    public String classify(TrainingDataset trainingDataset, String targetAttribute){
+    public String getLeafLabel(TrainingDataset trainingDataset, String targetAttribute){
 
         long count = 0;
         String selectedLabel = null;
@@ -76,7 +76,7 @@ public class ID3Service {
         return selectedLabel;
     }
 
-    //select best attribute (effectiveness) to classify training data
+    //select best attribute (effectiveness) to getLeafLabel training data
     public String findBestSplit(TrainingDataset trainingDataset, List<String> attributes, String targetAttribute){
 
         String selectedAttribute = null;
@@ -128,6 +128,8 @@ public class ID3Service {
 
         return gralEntropy - summa;
     }
+
+    //FUNCIONES A DESCARTAR PARA EXTENSION. DE USO INTERNO
 
     //get possible values for attribute
     public List<String> getAttributeValues(TrainingDataset trainingDataset, String targetAttribute){
