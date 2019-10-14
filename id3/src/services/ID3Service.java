@@ -5,6 +5,7 @@ import dto.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class ID3Service {
 
@@ -163,6 +164,28 @@ public class ID3Service {
     //get counter of record when targetAttribute equal valueAttribute
     public int countValues(TrainingDataset trainingDataset, String targetAttribute, String valueAttribute){
         return getSubTrainingDS(trainingDataset, targetAttribute, valueAttribute).getRecords().size();
+    }
+
+    //tree search for record
+    public String classifyRecord(DataRecord record, Node tree, List<String> attributes){
+
+        if(tree instanceof LeafNode){
+            return ((LeafNode) tree).getValueLabel();
+        } else {
+            InternNode internNode = ((InternNode)tree);
+            String testAttribute = internNode.getTestAttribute();
+            int indexAttribute = attributes.indexOf(testAttribute);
+            String valueAttribute = record.getValues().get(indexAttribute);
+
+            Optional<Node> child = internNode.getChildList().stream().filter(c -> valueAttribute.
+                    equalsIgnoreCase(c.getBranchValue())).findFirst();
+
+            if(child.isPresent()){
+                return classifyRecord(record, child.get(), attributes);
+            } else {
+                return "ERROR";
+            }
+        }
     }
 
 }

@@ -25,6 +25,9 @@ public class Main {
         Node tree = id3Service.treeGrowth(trainingDataset, trainingDataset.getAttributes(), "playtennis",
                 "root");
         System.out.println(tree);
+
+        String classifyLabel = id3Service.classifyRecord(buildDataRecord(), tree, trainingDataset.getAttributes());
+        System.out.println(classifyLabel);
     }
 
 
@@ -54,5 +57,9 @@ public class Main {
         records.add(new DataRecord(Arrays.asList("rain", "mild", "high", "strong", "no")));
 
         return new TrainingDataset(attributes, records);
+    }
+
+    public static DataRecord buildDataRecord(){
+        return new DataRecord(Arrays.asList("rain", "mild", "high", "weak", "yes"));
     }
 }
