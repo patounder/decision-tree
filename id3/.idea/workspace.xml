@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b95c0a77-e3c7-484a-899c-9ea57689205b" name="Default Changelist" comment="" />
+    <list default="true" id="b95c0a77-e3c7-484a-899c-9ea57689205b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dto/TrainingDataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dto/TrainingDataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dto/TrainingRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dto/DataRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ID3Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ID3Service.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state relative-caret-position="617">
+              <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/services/ID3Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1203">
-              <caret line="34" column="76" selection-start-line="34" selection-start-column="76" selection-end-line="34" selection-end-column="76" />
+            <state relative-caret-position="767">
+              <caret line="166" column="1" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,20 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dto/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="165">
               <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-              <folding>
-                <element signature="e#151#152#0" expanded="true" />
-                <element signature="e#174#175#0" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
-                <element signature="e#641#642#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#1019#1020#0" expanded="true" />
-                <element signature="e#1055#1056#0" expanded="true" />
-                <element signature="e#1113#1114#0" expanded="true" />
-                <element signature="e#1163#1164#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -62,16 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dto/LeafNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-              <folding>
-                <element signature="e#97#98#0" expanded="true" />
-                <element signature="e#120#121#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#419#420#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#515#516#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -79,33 +66,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dto/InternNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-              <folding>
-                <element signature="e#98#99#0" expanded="true" />
-                <element signature="e#121#122#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <element signature="e#505#506#0" expanded="true" />
-                <element signature="e#555#556#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dto/TrainingRecord.java">
+        <entry file="file://$PROJECT_DIR$/src/dto/DataRecord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-              <folding>
-                <element signature="e#138#139#0" expanded="true" />
-                <element signature="e#158#159#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-                <element signature="e#330#331#0" expanded="true" />
-                <element signature="e#387#388#0" expanded="true" />
-                <element signature="e#423#424#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -113,20 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dto/TrainingDataset.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="80" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="80" />
-              <folding>
-                <element signature="e#182#183#0" expanded="true" />
-                <element signature="e#205#206#0" expanded="true" />
-                <element signature="e#190#191#0" expanded="true" />
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#281#282#0" expanded="true" />
-                <element signature="e#325#326#0" expanded="true" />
-                <element signature="e#373#374#0" expanded="true" />
-                <element signature="e#403#404#0" expanded="true" />
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#501#502#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="105">
+              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -141,6 +100,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -148,7 +110,6 @@
         <option value="$PROJECT_DIR$/src/ID3Service.java" />
         <option value="$PROJECT_DIR$/src/dto/TrainningDataset.java" />
         <option value="$PROJECT_DIR$/src/dto/TrainningRecord.java" />
-        <option value="$PROJECT_DIR$/src/dto/TrainingRecord.java" />
         <option value="$PROJECT_DIR$/src/dto/TrainingDataset.java" />
         <option value="$PROJECT_DIR$/src/dto/TestNode.java" />
         <option value="$PROJECT_DIR$/src/dto/TypeNode.java" />
@@ -156,23 +117,26 @@
         <option value="$PROJECT_DIR$/src/dto/Node.java" />
         <option value="$PROJECT_DIR$/src/dto/LeafNode.java" />
         <option value="$PROJECT_DIR$/src/dto/InternNode.java" />
+        <option value="$PROJECT_DIR$/src/dto/TrainingRecord.java" />
+        <option value="$PROJECT_DIR$/src/dto/DataRecord.java" />
         <option value="$PROJECT_DIR$/src/services/ID3Service.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="497" />
-    <option name="y" value="-1042" />
-    <option name="width" value="1123" />
-    <option name="height" value="991" />
+    <option name="x" value="-255" />
+    <option name="y" value="-1057" />
+    <option name="width" value="973" />
+    <option name="height" value="1026" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,6 +162,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -247,24 +212,35 @@
       <option name="presentableId" value="Default" />
       <updated>1569447881506</updated>
       <workItem from="1569447886057" duration="3095000" />
-      <workItem from="1569944560691" duration="31694000" />
+      <workItem from="1569944560691" duration="32315000" />
+      <workItem from="1570665148845" duration="3199000" />
+      <workItem from="1571079230090" duration="38000" />
+      <workItem from="1571079391641" duration="781000" />
     </task>
+    <task id="LOCAL-00001" summary="Rename method classify to getLeafLabel">
+      <created>1570832658751</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570832658751</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34789000" />
+    <option name="totallyTimeSpent" value="39428000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="497" y="-1042" width="1123" height="991" extended-state="0" />
+    <frame x="-255" y="-1057" width="973" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22891566" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24060151" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32814237" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32762313" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.2502781" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.34705228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -282,12 +258,16 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Scheme.REPL" order="6" side_tool="true" />
+      <window_info anchor="right" id="Scheme.REPL" order="6" show_stripe_button="false" side_tool="true" weight="0.32938644" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Rename method classify to getLeafLabel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename method classify to getLeafLabel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -297,12 +277,6 @@
           <line>16</line>
           <properties />
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -346,40 +320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dto/TrainingRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding>
-            <element signature="e#138#139#0" expanded="true" />
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#387#388#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dto/TrainingDataset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="80" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="80" />
-          <folding>
-            <element signature="e#182#183#0" expanded="true" />
-            <element signature="e#205#206#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
-            <element signature="e#373#374#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
@@ -387,76 +327,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dto/TypeNode.java">
+    <entry file="file://$PROJECT_DIR$/src/dto/TypeNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/dto/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        <state relative-caret-position="165">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dto/LeafNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dto/InternNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        <state relative-caret-position="617">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dto/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/dto/TrainingDataset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#174#175#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1055#1056#0" expanded="true" />
-            <element signature="e#1113#1114#0" expanded="true" />
-            <element signature="e#1163#1164#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dto/LeafNode.java">
+    <entry file="file://$PROJECT_DIR$/src/dto/DataRecord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding>
-            <element signature="e#97#98#0" expanded="true" />
-            <element signature="e#120#121#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dto/InternNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-          <folding>
-            <element signature="e#98#99#0" expanded="true" />
-            <element signature="e#121#122#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#555#556#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/ID3Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1203">
-          <caret line="34" column="76" selection-start-line="34" selection-start-column="76" selection-end-line="34" selection-end-column="76" />
+        <state relative-caret-position="767">
+          <caret line="166" column="1" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

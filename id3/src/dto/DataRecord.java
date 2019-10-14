@@ -2,15 +2,15 @@ package dto;
 
 import java.util.List;
 
-public class TrainingRecord {
+public class DataRecord {
 
     private List<String> values;
 
-    public TrainingRecord(){
+    public DataRecord(){
         super();
     }
 
-    public TrainingRecord(List<String> values) {
+    public DataRecord(List<String> values) {
         super();
         this.values = values;
     }
@@ -25,7 +25,7 @@ public class TrainingRecord {
 
     @Override
     public String toString() {
-        return "TrainingRecord{" +
+        return "DataRecord{" +
                 "values=" + values +
                 '}';
     }

@@ -137,7 +137,7 @@ public class ID3Service {
         List<String> valueList = new ArrayList<>();
         int attributeIndex = trainingDataset.getAttributes().indexOf(targetAttribute);
 
-        for(TrainingRecord record : trainingDataset.getRecords()){
+        for(DataRecord record : trainingDataset.getRecords()){
 
             if(!valueList.contains(record.getValues().get(attributeIndex))){
                 valueList.add(record.getValues().get(attributeIndex));
@@ -149,9 +149,9 @@ public class ID3Service {
     //get subset training dataset where attribute is value
     public TrainingDataset getSubTrainingDS(TrainingDataset trainingDataset, String attribute, String value){
         int attributeIndex = trainingDataset.getAttributes().indexOf(attribute);
-        List<TrainingRecord> records = new ArrayList<>();
+        List<DataRecord> records = new ArrayList<>();
 
-        for(TrainingRecord record : trainingDataset.getRecords()){
+        for(DataRecord record : trainingDataset.getRecords()){
             if(record.getValues().get(attributeIndex).equalsIgnoreCase(value)){
                 records.add(record);
             }
@@ -164,4 +164,5 @@ public class ID3Service {
     public int countValues(TrainingDataset trainingDataset, String targetAttribute, String valueAttribute){
         return getSubTrainingDS(trainingDataset, targetAttribute, valueAttribute).getRecords().size();
     }
+
 }

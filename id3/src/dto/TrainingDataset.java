@@ -5,13 +5,13 @@ import java.util.List;
 public class TrainingDataset {
 
     private List<String> attributes;
-    private List<TrainingRecord> records;
+    private List<DataRecord> records;
 
     public TrainingDataset() {
         super();
     }
 
-    public TrainingDataset(List<String> attributes, List<TrainingRecord> records) {
+    public TrainingDataset(List<String> attributes, List<DataRecord> records) {
         super();
         this.attributes = attributes;
         this.records = records;
@@ -25,11 +25,11 @@ public class TrainingDataset {
         this.attributes = attributes;
     }
 
-    public List<TrainingRecord> getRecords() {
+    public List<DataRecord> getRecords() {
         return records;
     }
 
-    public void setRecords(List<TrainingRecord> records) {
+    public void setRecords(List<DataRecord> records) {
         this.records = records;
     }
 
